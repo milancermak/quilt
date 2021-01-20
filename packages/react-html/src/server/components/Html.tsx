@@ -16,6 +16,10 @@ export interface Asset {
   integrity?: string;
 }
 
+export interface ScriptAsset extends Asset {
+  type?: 'module' | 'text/javascript';
+}
+
 export interface InlineStyle {
   content: string;
 }
@@ -27,8 +31,8 @@ export interface HtmlProps {
   locale?: string;
   styles?: Asset[];
   inlineStyles?: InlineStyle[];
-  scripts?: Asset[];
-  blockingScripts?: Asset[];
+  scripts?: ScriptAsset[];
+  blockingScripts?: ScriptAsset[];
   preloadAssets?: Asset[];
   headMarkup?: React.ReactNode;
   bodyMarkup?: React.ReactNode;
